@@ -1,0 +1,18 @@
+The way we use associate calls is understand by most of our supported compilers
+(intel, gnu, nag, and cray) but causes errors when built with PGI. This simple
+program highlights the issue for us... typical output is:
+
+Building with ifort...
+intel.out
+
+Building with gfortran...
+gnu.out
+intel.out
+
+Building with pgf90...
+PGF90-S-0075-Subscript, substring, or argument illegal in this context for second (pgi_err.F90: 42)
+PGF90-S-0153-Array objects are not conformable  (pgi_err.F90: 42)
+PGF90-S-0455-A derived type array section cannot appear with a member array section - matrix (pgi_err.F90: 42)
+  0 inform,   0 warnings,   3 severes, 0 fatal for pgi_err
+gnu.out
+intel.out
